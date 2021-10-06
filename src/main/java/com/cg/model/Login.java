@@ -37,6 +37,5 @@ public class Login {
 		this.role = role;
 	}
 	
-	
 
 }
