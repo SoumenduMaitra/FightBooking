@@ -1,38 +1,87 @@
 package com.cg.model;
 
 import java.time.LocalTime;
+import java.util.List;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 public class Schedule {
 	
-	private Integer flightId;
-	private String flightName;
-	private LocalTime departure;
-	private LocalTime arrival;
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "seq4" )
+	@SequenceGenerator(name="seq4", sequenceName = "schedule_sequence", allocationSize = 1, initialValue = 100)
+	private Integer scheduleId;
+	private LocalTime departuretime;
+	private LocalTime arrivaltime;
+	private String source;
+	private String destination;
+	private Integer seatsAvailable;
 	
+	@ManyToMany
+	private List<FlightDetails> flightdetails;
 	
-	public Integer getFlightId() {
-		return flightId;
+	@OneToMany(mappedBy = "schedule")
+	private List<BookingDetails> bookingdetails;
+
+	public Integer getScheduleId() {
+		return scheduleId;
 	}
-	public void setFlightId(Integer flightId) {
-		this.flightId = flightId;
+
+	public void setScheduleId(Integer scheduleId) {
+		this.scheduleId = scheduleId;
 	}
-	public String getFlightName() {
-		return flightName;
+
+	public LocalTime getDeparturetime() {
+		return departuretime;
 	}
-	public void setFlightName(String flightName) {
-		this.flightName = flightName;
+
+	public void setDeparturetime(LocalTime departuretime) {
+		this.departuretime = departuretime;
 	}
-	public LocalTime getDeparture() {
-		return departure;
+
+	public LocalTime getArrivaltime() {
+		return arrivaltime;
 	}
-	public void setDeparture(LocalTime departure) {
-		this.departure = departure;
+
+	public void setArrivaltime(LocalTime arrivaltime) {
+		this.arrivaltime = arrivaltime;
 	}
-	public LocalTime getArrival() {
-		return arrival;
+
+	public String getSource() {
+		return source;
 	}
-	public void setArrival(LocalTime arrival) {
-		this.arrival = arrival;
+
+	public void setSource(String source) {
+		this.source = source;
+	}
+
+	public String getDestination() {
+		return destination;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+	public Integer getSeatsAvailable() {
+		return seatsAvailable;
+	}
+
+	public void setSeatsAvailable(Integer seatsAvailable) {
+		this.seatsAvailable = seatsAvailable;
+	}
+
+	public List<FlightDetails> getFlightdetails() {
+		return flightdetails;
+	}
+
+	public void setFlightdetails(List<FlightDetails> flightdetails) {
+		this.flightdetails = flightdetails;
 	}
 
 }

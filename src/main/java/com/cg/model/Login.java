@@ -1,7 +1,11 @@
 package com.cg.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
@@ -15,16 +19,17 @@ public class Login {
 	
 	
 	@Id
-	private Integer loginId;
+	private Integer userId;
 	private String password;
 	private String role;
 	
-	public Integer getLoginId() {
-		return loginId;
+	public Integer getUserId() {
+		return userId;
 	}
-	public void setLoginId(Integer loginId) {
-		this.loginId = loginId;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
+	
 	public String getPassword() {
 		return password;
 	}
@@ -37,5 +42,19 @@ public class Login {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "userId", referencedColumnName = "userId")
+	@MapsId
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	
 
 }

@@ -4,11 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+
+
 
 @Entity
 @DynamicInsert
@@ -21,35 +26,37 @@ public class BookingDetails {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "seq1" )
 	@SequenceGenerator(name="seq1", sequenceName = "user_sequence", allocationSize = 1, initialValue = 500)
 	private Integer ticketId;
-	private  FlightDetails flightDetails;
-	private Schedule schedule;
-	private AirlineDetails airLineDetails;
 	
+	@OneToOne
+	@JoinColumn(name = "userIdfk", referencedColumnName = "userId")
+	private User user;
+	
+	@ManyToOne
+	@JoinColumn(name= "bookingId")
+	private Schedule schedule;
+
 	public Integer getTicketId() {
 		return ticketId;
 	}
+
 	public void setTicketId(Integer ticketId) {
 		this.ticketId = ticketId;
 	}
-	public FlightDetails getFlightDetails() {
-		return flightDetails;
+
+	public User getUser() {
+		return user;
 	}
-	public void setFlightDetails(FlightDetails flightDetails) {
-		this.flightDetails = flightDetails;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
+
 	public Schedule getSchedule() {
 		return schedule;
 	}
+
 	public void setSchedule(Schedule schedule) {
 		this.schedule = schedule;
 	}
-	public AirlineDetails getAirLineDetails() {
-		return airLineDetails;
-	}
-	public void setAirLineDetails(AirlineDetails airLineDetails) {
-		this.airLineDetails = airLineDetails;
-	}
 	
-	
-
 }
