@@ -6,4 +6,5 @@ import com.cg.model.FlightDetails;
 
 public interface FlightRepository extends JpaRepository<FlightDetails, Integer> {
 
+	
 }

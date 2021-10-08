@@ -6,4 +6,5 @@ import com.cg.model.BookingDetails;
 
 public interface BookingRepository extends JpaRepository<BookingDetails, Integer> {
 
+	
 }

@@ -6,4 +6,5 @@ import com.cg.model.Schedule;
 
 public interface ScheduleRepository extends JpaRepository<Schedule, Integer> {
 
+	
 }
