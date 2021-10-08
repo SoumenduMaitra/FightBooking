@@ -36,6 +36,5 @@ public class Login {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
 
 }
