@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 
 public class LoginDto {
 	
+	
 	@NotNull(message = "User ID cannnot be empty")
 	private Integer userId;
 	

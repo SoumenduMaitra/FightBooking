@@ -13,6 +13,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Table(name = "AirLine_Details")
 public class AirlineDetails {
 	
+	
 	@Id
 	private Integer airLineId;
 	private String airLineName;

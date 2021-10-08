@@ -13,6 +13,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Table(name = "Login_Table")
 public class Login {
 	
+	
 	@Id
 	private Integer loginId;
 	private String password;

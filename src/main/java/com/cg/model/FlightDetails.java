@@ -16,6 +16,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Table(name = "Flight_Details")
 public class FlightDetails {
 	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "seq1" )
 	@SequenceGenerator(name="seq1", sequenceName = "user_sequence", allocationSize = 1, initialValue = 100)

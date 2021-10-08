@@ -9,6 +9,7 @@ public class Schedule {
 	private LocalTime departure;
 	private LocalTime arrival;
 	
+	
 	public Integer getFlightId() {
 		return flightId;
 	}

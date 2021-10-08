@@ -18,6 +18,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Table(name = "User_Table")
 public class User {
 	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "seq1" )
 	@SequenceGenerator(name="seq1", sequenceName = "user_sequence", allocationSize = 1, initialValue = 1)

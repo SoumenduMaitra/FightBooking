@@ -7,7 +7,6 @@ import org.hibernate.validator.constraints.Length;
 
 public class UserDto{
 	
-
 	private Integer userId;
 	
 	@NotBlank(message = "User Name cannot be blank")
