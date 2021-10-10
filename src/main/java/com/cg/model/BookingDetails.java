@@ -23,8 +23,8 @@ public class BookingDetails {
 	
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "seq1" )
-	@SequenceGenerator(name="seq1", sequenceName = "user_sequence", allocationSize = 1, initialValue = 500)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "seq5" )
+	@SequenceGenerator(name="seq5", sequenceName = "booking_sequence", allocationSize = 1, initialValue = 500)
 	private Integer ticketId;
 	
 	@OneToOne
