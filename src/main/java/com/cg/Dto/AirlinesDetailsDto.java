@@ -8,6 +8,7 @@ public class AirlinesDetailsDto {
 	private Integer airlineId;
 	private String airlineName;
 	private String airlineLogo;
+	
 	public Integer getAirlineId() {
 		return airlineId;
 	}
